@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2023-04-10T10:17:56Z"
+  generation: 16
+  name: nfs-provisioner
+  namespace: argocd
+  resourceVersion: "1111085"
+  uid: 37d31c97-cd51-4c48-85b9-e696fa4f1b8f
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: nfs-subdir-external-provisioner
+    helm:
+      parameters:
+      - name: nfs.server
+        value: 192.168.37.105
+      - name: nfs.path
+        value: ' /mnt/IT-Academy/nfs-data/sa2-23-23/Anton_Bartoshevich/'
+    repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+    targetRevision: 4.0.18
+  syncPolicy: {}
+
