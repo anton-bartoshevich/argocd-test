@@ -1,7 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  generation: 28
   name: jenkins-app
   namespace: argocd
 spec:
@@ -17,3 +16,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
